@@ -454,7 +454,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .pic-txtx span {
   font-style: italic;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 100px;
   letter-spacing: 0.8px;
 }
 .background-image-right {
@@ -540,7 +540,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 50px 0;
+  padding: 12 0 50px 0;
   background-image: url('./assets/img/footer-bg.png');
   background-position: center center;
   background-size: cover;
@@ -629,4 +629,121 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 12px;
   font-size: medium;
 
+}
+.square {
+  position: relative;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+  width: 50%; /* Set the width to be 50% of the parent element */
+  height: calc(50vw / 2); /* Set the height to be 1/4 of the width */
+  max-width: 400px; /* Limit the maximum width to 200px */
+  margin: auto;
+  border: 2px dashed gray;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.square::before {
+  content: "";
+
+}
+
+.preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drop-zone {
+  font-size: 24px;
+  text-align: center;
+}
+
+.remove-button {
+  position: relative;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  color: red;
+}
+
+.buttonDelete {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+.buttonDelete  h6 {
+  z-index: 1;
+}
+.buttonDelete ::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in;
+}
+.buttonDelete :hover {
+  color: #121212;
+}
+.buttonDelete :hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.ImageBox {
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  margin: 20px 0;
+}
+.dropbox {
+  border: 2px dashed #ccc;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.dropbox.active {
+  border-color: #666;
+  color: #666;
 }

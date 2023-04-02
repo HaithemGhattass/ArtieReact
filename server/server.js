@@ -1,21 +1,35 @@
 import express from 'express';
+import multer from 'multer';
+import cv from 'opencv4nodejs';
+import path from 'path';
+
 const app = express();
-const port = process.env.PORT || 9090;
+const upload = multer();
 
-app.get("/api",(req,res) => {
-     res.json({"users": [{
-        title: "Picture 1",
-        description: "lel sghar",
-        imgUrl: "https://i.imgur.com/fHyEMsl.jpg"
-     },{
-        title: "Picture 2",
-        description: "lel kbar",
-        imgUrl: "https://i.imgur.com/fHyEMsl.jpg"
-     }]})
-    
-})
+// Serve the HTML file with the image upload form
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
+// Handle the image upload and conversion
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Read the uploaded image
+  const img = cv.imdecode(req.file.buffer);
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+  // Convert the image to grayscale
+  const grayImg = img.cvtColor(cv.COLOR_BGR2GRAY);
+
+  // Threshold the grayscale image to get a black and white image
+  const thresholdImg = grayImg.threshold(127, 255, cv.THRESH_BINARY);
+
+  // Encode the black and white image to a buffer
+  const buffer = cv.imencode('.jpg', thresholdImg).toString('base64');
+
+  // Return the black and white image as a response
+  res.send(`<img src="data:image/jpeg;base64,${buffer}" />`);
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
 });

@@ -4,8 +4,7 @@ import './App.css'
 import {NavBar} from './components/navBar';
 import {Banner} from './components/Banner';
 import {Pictures} from './components/pictures';
-import  PictureForm  from './components/PictureForm';
-
+import { Contact } from "./components/DropBox";
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return(
@@ -13,7 +12,7 @@ function App() {
 <NavBar />
 <Banner />
 <Pictures />
-<PictureForm />
+<Contact />
 </div>
   );
 }

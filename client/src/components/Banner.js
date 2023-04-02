@@ -57,7 +57,6 @@ export const Banner = () => {
                 <span className="tagline">Welcome to the Dashboard</span>
                 <h1>{`Welcome to Artie Dash`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Add pictures", "See Users" ]'><span className="wrap">{text}</span></span></h1>
                   <p>this is a space where the admin can see al the users of artie and can add pictures so the users wont get bored idk idk omg</p>
-                  <button onClick={() => console.log('add picture')}>Add pictures <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>

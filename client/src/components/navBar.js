@@ -36,11 +36,10 @@ export const NavBar = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
             <Nav.Link href="#picture" className={activeLink === 'picture' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('picture')}>Pictures</Nav.Link>
-            <Nav.Link href="#users" className={activeLink === 'users' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('users')}>Users</Nav.Link>          
           </Nav>
           <span className="navbar-text">
             
-            <button className="vvd" onClick={() => console.log('add picture')}><span>Add pictures</span></button>
+            <button className="vvd" onClick={() => console.log('Logging out ')}><span>Log out</span></button>
           </span>
         </Navbar.Collapse>
       </Container>
